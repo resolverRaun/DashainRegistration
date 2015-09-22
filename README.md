@@ -1,11 +1,35 @@
-# DashainRegistration
-1)change .env.example file to .env and change database settings.
-2)you can find sql file in resources/database_file/dashain_app.sql . Import it into mysql using phpmyadmin.
-3)Install composer to manage package in laravel.Run composer update to install packages.
-4)Edit and validating form is remaining.
+# DashainRegistration 
+- change .env.example file to .env and change database settings.
+- you can find sql file in resources/database_file/dashain_app.sql . Import it into mysql using phpmyadmin.
+- Make sure composer is installed. Also add alias for composer
+  - install composer
+  
+    curl -sS https://getcomposer.org/installer | php
+
+  - add alias
+  
+    sudo mv composer.phar /usr/bin/
+
+    vim ~/.bash_profile
+    
+  - add following lines to the  .bash_profile
+  
+    alias composer="php /usr/bin/composer.phar"
+
+  - restart console for this change to take effect
+
+- Install composer to manage package in laravel.Run composer update to install packages.
+    
+    composer install
+
+    composer update
+    
+- Edit and validating form is remaining.
+    
 
 Login information
 
 email : bittu1028@gmail.com		
 password : hello
+
 
