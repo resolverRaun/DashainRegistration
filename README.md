@@ -25,6 +25,17 @@
     composer update
     
 - Edit and validating form is remaining.
+- To start the server, run
+     php artisan serve
+
+##GOTCHAS
+- getting following error
+
+        laravel No supported encrypter found. The cipher and / or key length are invalid
+        
+    - run 
+
+        php artisan key:generate
     
 
 Login information
