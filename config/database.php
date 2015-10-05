@@ -60,6 +60,7 @@ return [
             'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
+            'unix_socket' => '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock',
             'prefix'    => '',
             'strict'    => false,
             'port' => '8000'
