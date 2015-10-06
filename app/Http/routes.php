@@ -21,10 +21,20 @@ Route::controllers([
 ]);
 //Route::get('/', 'WelcomeController@index');
 
-Route::get('/{query?}', array('as' => 'home', 'uses' => 'HomeController@index'));
+Route::get('/home', array('as' => 'home', 'uses' => 'HomeController@index'));
+
 Route::get('home/addUser/new', 'HomeController@addUser');
 Route::post('home/uploadCsv', 'HomeController@uploadCsv');
 Route::post('home/insertUser', 'HomeController@insertUser');
+
+Route::get('/', 'HomeController@addParticipants');
 Route::get('home/participants/new', 'HomeController@addParticipants');
-Route::post('home/participants/save', 'HomeController@saveParticipants');
 Route::get('home/participants/edit/{id}', 'HomeController@editParticipants');
+Route::post('home/participants/save', 'HomeController@saveParticipants');
+
+Route::get('home/viewPeople',array('as' => 'people', 'uses' => 'HomeController@viewPeople'));
+Route::get('search/autocomplete/{term?} ', 'HomeController@autocomplete');
+
+Route::get('home/inventory/new', 'HomeController@addInventory');
+Route::post('home/inventory/save', 'HomeController@saveInventory');
+Route::get('home/inventory',array('as' => 'inventory', 'uses' => 'HomeController@getInventory'));

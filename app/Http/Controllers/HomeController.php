@@ -1,11 +1,15 @@
 <?php namespace App\Http\Controllers;
 
+use App\Inventory;
 use App\Participant;
 use App\Participators_type;
+use App\People;
 use App\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -20,7 +24,7 @@ class HomeController extends Controller
     | controller as you wish. It is just here to get your app started!
     |
     */
-
+    protected $rules=['name' => 'required','is_member' => 'required','cost_amt' => 'required|numeric','received_amt' => 'required|numeric','return_amt' => 'required|numeric','adult' => 'required|numeric','children' => 'required|numeric','senior' => 'required|numeric'];
     /**
      * Create a new controller instance.
      *
@@ -38,30 +42,62 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sum_cost = DB::table('participants')->select(DB::raw('sum(cost_amt) as total_cost_amt'))->first();
-        $total_members = DB::table('participant_type')->select(DB::raw('sum(adult) as total_adult,sum(children) as total_children,sum(senior) as total_senior'))->first();
+        $sum_cost = $this->getTotalCost();
+        $total_members = $this->getTotalMember();
         $participants = Participant::with('participant_type')->get()->toArray();
         return view('home', compact('participants'))->with('sum_cost',$sum_cost)->with('total_members',$total_members);
     }
 
+//    get total cost
+    private function  getTotalCost(){
+        $arr_total_money = DB::table('participants')->select(DB::raw('sum(cost_amt) as total_cost_amt'))->first();
+        $arr_expended_money= DB::table('inventory')->select(DB::raw('sum(price) as total_expended_amt'))->first();
+        if(empty($arr_total_money->total_cost_amt))
+            $arr_total_money->total_cost_amt=0;
+        if(empty($arr_expended_money->total_expended_amt))
+            $arr_expended_money->total_expended_amt=0;
+        $petty_cash=$arr_total_money->total_cost_amt-$arr_expended_money->total_expended_amt;
+        return $petty_cash;
+    }
+
+//    get total member
+    private function  getTotalMember(){
+        $total_members = DB::table('participant_type')->select(DB::raw('sum(adult) as total_adult,sum(children) as total_children,sum(senior) as total_senior'))->first();
+        return $total_members;
+    }
+
     public function uploadCsv()
     {
-        $file = Input::file('report');
+        $file = Input::file('csv');
         Excel::load($file, function ($reader) {
             // Getting all results
             $results = $reader->get()->toArray();
             foreach ($results as $result) {
-                $oldUser = User::find($result['id']);
+                $oldData = People::where('id', '=', $result['id'])->first();
+                if (!is_null($oldData)) {
+                    $oldData->fill($result)->save();
+                } else {
+                    $data = People::create($result);
+                }
+
             }
+            return redirect()->action('HomeController@viewPeople');
         });
     }
 
     public  function  addParticipants(){
-       return view('participant');
+        $sum_cost = $this->getTotalCost();
+        $total_members =$this->getTotalMember();
+       return view('participant')->with('sum_cost',$sum_cost)->with('total_members',$total_members);
     }
 
     public  function  saveParticipants(){
         $attributes=Input::all();
+        $validator = Validator::make(Input::all(), $this->rules);
+        if ($validator->fails())
+        {
+            return redirect()->action('HomeController@addParticipants')->withErrors($validator);
+        }
         $participant['name']=$attributes['name'];
         $participant['cost_amt']=$attributes['cost_amt'];
         $participant['received_amt']=$attributes['received_amt'];
@@ -81,5 +117,64 @@ class HomeController extends Controller
     public function editParticipants($id){
         $participant_info = Participant::with('participant_type')->find($id)->toArray();
         return view('edit_participant', compact('participant_info'));
+    }
+    public  function  updateParticipants($id){
+        $participant_info = Participant::find($id)->toArray();
+        $attributes=Input::all();
+        $participant['name']=$attributes['name'];
+        $participant['cost_amt']=$attributes['cost_amt'];
+        $participant['received_amt']=$attributes['received_amt'];
+        $participant['return_amt']=$attributes['return_amt'];
+        $participant['is_member']=$attributes['is_member'];
+        $result=Participant::fill($participant)->save();
+        $participant_type['adult']=$attributes['adult'];
+        $participant_type['children']=$attributes['children'];
+        $participant_type['senior']=$attributes['senior'];
+        $result_participant=Participators_type::fill($participant_type)->save();
+        if($result_participant){
+            return redirect()->action('HomeController@index');
+        }
+    }
+
+    public function  viewPeople(){
+        $sum_cost = $this->getTotalCost();
+        $total_members =$this->getTotalMember();
+        $people = People::get()->toArray();
+        return view('people', compact('people'))->with('sum_cost',$sum_cost)->with('total_members',$total_members);
+    }
+    public function autocomplete(){
+        $term = Input::get('term');
+
+        $results = array();
+
+        $queries = DB::table('people')
+            ->where('first_name', 'LIKE', '%'.$term.'%')
+            ->orWhere('last_name', 'LIKE', '%'.$term.'%')
+            ->take(5)->get();
+
+        foreach ($queries as $query)
+        {
+            $results[] = [ 'id' => $query->id, 'value' => $query->first_name.' '.$query->last_name ];
+        }
+        return response()->json($results);
+    }
+
+    public function getInventory(){
+        $sum_cost = $this->getTotalCost();
+        $total_members = $this->getTotalMember();
+        $inventory = Inventory::get()->toArray();
+        return view('inventory', compact('inventory'))->with('sum_cost',$sum_cost)->with('total_members',$total_members);
+    }
+
+    public function addInventory(){
+        return view('add_inventory');
+    }
+
+    public function saveInventory(){
+        $attributes=Input::all();
+        $result=Inventory::create($attributes);
+        if($result){
+            return redirect()->action('HomeController@getInventory');
+        }
     }
 }

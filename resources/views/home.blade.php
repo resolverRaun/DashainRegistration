@@ -60,7 +60,7 @@
                 </div>
 
             </div>
-            <h5>Petty Cash($) : {{$sum_cost->total_cost_amt}} </h5>
+            <h5>Petty Cash($) : {{$sum_cost}} </h5>
         </div>
     </div>
 </div>

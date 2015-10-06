@@ -15,6 +15,13 @@ $(document).ready(function () {
             }
         };
     })();
+    $("#participant_name").autocomplete({
+        source: "search/autocomplete",
+        minLength: 3,
+        select: function (event, ui) {
+            $('#participant_name').val(ui.item.value);
+        }
+    });
 
     $('#example').DataTable();
 
@@ -31,7 +38,7 @@ $(document).ready(function () {
         var children_no = $('#participant_children').val();
         var senior_no = $('#participant_senior').val();
         var cal_adult, cal_children, cal_senior;
-        var data={};
+        var data = {};
         data = calculatePrice(adult_no, children_no, senior_no);
         $('#adult_total_disp').text(data.cal_adult);
         $('#senior_total_disp').text(data.cal_senior);
@@ -78,13 +85,15 @@ $(document).ready(function () {
         }
 
         var total_cost = cal_senior + cal_adult + cal_children;
-        return data={
-            'total_cost':total_cost,
-            'cal_adult' : cal_adult,
-            'cal_children' : cal_children,
-            'cal_senior' : cal_senior
+        return data = {
+            'total_cost': total_cost,
+            'cal_adult': cal_adult,
+            'cal_children': cal_children,
+            'cal_senior': cal_senior
         }
     }
+
+
 
 });
 

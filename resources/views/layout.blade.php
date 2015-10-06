@@ -15,6 +15,7 @@
     <!-- CUSTOM STYLE  -->
     <link href="{{asset('/css/style.css')}}" rel="stylesheet"/>
     <link href="{{asset('/css/jquery.dataTables.min.css')}}" rel="stylesheet"/>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -90,12 +91,8 @@
                 <div class="navbar-collapse collapse ">
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
                         <li><a href="{{ URL::route('home') }}">Participants</a></li>
-<!--                        <li><a href="ui.html">UI Elements</a></li>-->
-<!--                        <li><a href="table.html">Data Tables</a></li>-->
-                        <!--                        <li><a class="menu-top-active" href="forms.html">Forms</a></li>-->
-                        <!--                        <li><a href="login.html">Login Page</a></li>-->
-                        <!--                        <li><a href="blank.html">Blank Page</a></li>-->
-
+                        <li><a href="{{ URL::route('people') }}">People</a></li>
+                        <li><a href="{{ URL::route('inventory') }}">Inventory</a></li>
                     </ul>
                 </div>
             </div>
@@ -120,9 +117,12 @@
 </footer>
 
 <!-- Scripts -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+<script src="{{asset('/js/jquery-1.11.1.js')}}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <script src="{{asset('/js/jquery.dataTables.js')}}"></script>
+<!--<script src="{{asset('/js/jquery-ui/jquery-ui-1.10.3.minimal.min.js')}}"></script>-->
 <script src="{{asset('/js/custom-js.js')}}"></script>
 </body>
 </html>
