@@ -33,6 +33,13 @@ $(document).ready(function () {
             $('#pt_name').text('Participant Name');
         }
     });
+    $("#reset").click(function () {
+        $(this).closest('form').find("input[type=text], textarea").val("");
+        $('#adult_total_disp').text(0);
+        $('#children_total_disp').text(0);
+        $('#senior_total_disp').text(0);
+        $('#total_cost_disp').text(0);
+    });
     $("#participant_adult,#participant_children,#participant_senior,#received_amt").change(function () {
         var adult_no = $('#participant_adult').val();
         var children_no = $('#participant_children').val();

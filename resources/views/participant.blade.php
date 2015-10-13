@@ -109,6 +109,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="btnSubmit" value="Save" id="submit_participant" class="btn btn-md btn-success" />
+                                <input type="button" name="btnReset" value="Reset" id="reset" class="btn btn-md btn-success" />
                             </div>
                         </form>
                     </div>

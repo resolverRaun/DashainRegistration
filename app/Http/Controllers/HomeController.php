@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Inventory;
+use App\MoneyArrange;
 use App\Participant;
 use App\Participators_type;
 use App\People;
@@ -25,6 +26,7 @@ class HomeController extends Controller
     |
     */
     protected $rules=['name' => 'required','is_member' => 'required','cost_amt' => 'required|numeric','received_amt' => 'required|numeric','return_amt' => 'required|numeric','adult' => 'required|numeric','children' => 'required|numeric','senior' => 'required|numeric'];
+    private $money_arrange_id=1;
     /**
      * Create a new controller instance.
      *
@@ -175,6 +177,19 @@ class HomeController extends Controller
         $result=Inventory::create($attributes);
         if($result){
             return redirect()->action('HomeController@getInventory');
+        }
+    }
+
+    public  function  getMiscellaneous(){
+        $data=MoneyArrange::find($this->money_arrange_id);
+        return view('miscellaneous',compact('data'));
+    }
+    public  function  updateMiscellaneous(){
+        $attribute=Input::all();
+        $model=MoneyArrange::find($this->money_arrange_id);
+        $result_participant=$model->fill($attribute)->save();
+        if($result_participant){
+            return redirect()->action('HomeController@getMiscellaneous');
         }
     }
 }

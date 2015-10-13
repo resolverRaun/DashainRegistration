@@ -90,9 +90,11 @@
             <div class="col-md-12">
                 <div class="navbar-collapse collapse ">
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
-                        <li><a href="{{ URL::route('home') }}">Participants</a></li>
+                        <li><a href="{{ URL::route('home') }}">Home</a></li>
+                        <li><a href="{{ URL::route('participant') }}">Participants</a></li>
                         <li><a href="{{ URL::route('people') }}">People</a></li>
                         <li><a href="{{ URL::route('inventory') }}">Inventory</a></li>
+                        <li><a href="{{ URL::route('miscellaneous') }}">Miscellaneous</a></li>
                     </ul>
                 </div>
             </div>
