@@ -1,5 +1,19 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+|Heroku preparation to connect to postgres
+|--------------------------------------------------------------------------
+
+*/
+
+$url = parse_url(getenv('DATABASE_URL'));
+
+$host = $url['host'];
+$username = $url['user'];
+$password = $url['pass'];
+$database = substr($url['path'], 1);
+
 return [
 
     /*
@@ -27,6 +41,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'pgsql'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -68,10 +83,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', 'localhost'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host'     => env('DB_HOST', $host),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $username),
+            'password' => env('DB_PASSWORD', $password),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
