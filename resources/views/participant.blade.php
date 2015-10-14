@@ -11,40 +11,40 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="dashboard-div-wrapper bk-clr-one">
-                    <i class="fa fa-user dashboard-div-icon"></i>
+                    <i class="fa fa-users dashboard-div-icon"></i>
 
-                    <div class="progress progress-striped active">
+                    <!--<div class="progress progress-striped active">
                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0"
                              aria-valuemax="100" style="width: 80%">
                         </div>
 
-                    </div>
+                    </div>-->
                     <h5 class="dashboard-members-count">Adult : {{$total_members->total_adult}} </h5>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="dashboard-div-wrapper bk-clr-two">
-                    <i class="fa fa-cogs dashboard-div-icon"></i>
+                    <i class="fa fa-child dashboard-div-icon"></i>
 
-                    <div class="progress progress-striped active">
+                    <!--<div class="progress progress-striped active">
                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
                              aria-valuemax="100" style="width: 40%">
                         </div>
 
-                    </div>
+                    </div>-->
                     <h5>Children : {{$total_members->total_children}}</h5>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="dashboard-div-wrapper bk-clr-three">
-                    <i class="fa fa-bell-o dashboard-div-icon"></i>
+                    <i class="fa fa-user dashboard-div-icon"></i>
 
-                    <div class="progress progress-striped active">
+                    <!--<div class="progress progress-striped active">
                         <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0"
                              aria-valuemax="100" style="width: 50%">
                         </div>
 
-                    </div>
+                    </div>-->
                     <h5>Senior : {{$total_members->total_senior}}</h5>
                 </div>
             </div>
@@ -52,12 +52,12 @@
                 <div class="dashboard-div-wrapper bk-clr-four">
                     <i class="fa fa-dollar dashboard-div-icon"></i>
 
-                    <div class="progress progress-striped active">
+                    <!--<div class="progress progress-striped active">
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0"
                              aria-valuemax="100" style="width: 70%">
                         </div>
 
-                    </div>
+                    </div>-->
                     <h5>Petty Cash($) : {{$sum_cost}} </h5>
                 </div>
             </div>
@@ -85,27 +85,27 @@
                             </div>
                             <div class="form-group">
                                 <label for="participator_adult">Adult</label>
-                                <input type="text" class="form-control" name="adult" id="participant_adult" vaule="0" placeholder="0" />
+                                <input type="text" class="form-control" name="adult" id="participant_adult" value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <label for="participator_children">Children</label>
-                                <input type="text" class="form-control" name="children" id="participant_children"  vaule="0" placeholder="0" />
+                                <input type="text" class="form-control" name="children" id="participant_children"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <label for="participator_senior">Senior</label>
-                                <input type="text" class="form-control" name="senior" id="participant_senior"  vaule="0" placeholder="0" />
+                                <input type="text" class="form-control" name="senior" id="participant_senior"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <label for="participator_tot_cost">Total Cost</label>
-                                <input type="text" class="form-control" name="cost_amt" id="cost_amt"  vaule="0" placeholder="0" />
+                                <input type="text" class="form-control" name="cost_amt" id="cost_amt"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <label for="participator_received_amt">Received Amount</label>
-                                <input type="text" class="form-control" name="received_amt" id="received_amt"  vaule="0" placeholder="0" />
+                                <input type="text" class="form-control" name="received_amt" id="received_amt"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <label for="participator_return_amt">Return Amount</label>
-                                <input type="text" class="form-control" name="return_amt" id="return_amt"  vaule="0" placeholder="0" />
+                                <input type="text" class="form-control" name="return_amt" id="return_amt"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="btnSubmit" value="Save" id="submit_participant" class="btn btn-md btn-success" />

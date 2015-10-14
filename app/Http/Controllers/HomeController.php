@@ -96,10 +96,6 @@ class HomeController extends Controller
     public  function  saveParticipants(){
         $attributes=Input::all();
         $validator = Validator::make(Input::all(), $this->rules);
-        if ($validator->fails())
-        {
-            return redirect()->action('HomeController@addParticipants')->withErrors($validator);
-        }
         $participant['name']=$attributes['name'];
         $participant['cost_amt']=$attributes['cost_amt'];
         $participant['received_amt']=$attributes['received_amt'];

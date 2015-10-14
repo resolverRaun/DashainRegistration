@@ -29,7 +29,7 @@
 </head>
 <body>
 <header>
-    <div class="container">
+    <!--<div class="container">
         <div class="row">
             <div class="col-md-12">
                 <strong>Email: </strong>dinesh.rauniyar@gmail.com
@@ -38,7 +38,7 @@
             </div>
 
         </div>
-    </div>
+    </div>-->
 </header>
 <div class="navbar navbar-inverse set-radius-zero">
     <div class="container">
@@ -50,12 +50,12 @@
             </button>
             <a class="navbar-brand" href="index.html">
 
-                <img src="assets/img/logo.png"/>
+                <img src="../img/logo.png" style="max-height: 100px; max-width: 100px;"/>
             </a>
 
         </div>
 
-        <div class="left-div">
+        <div class="left-div" >
             <div class="user-settings-wrapper">
                 <ul class="nav">
 
