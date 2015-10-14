@@ -15,34 +15,8 @@ $(document).ready(function () {
             }
         };
     })();
-    $("#participant_name").autocomplete({
-        source: "search/autocomplete",
-        minLength: 3,
-        select: function (event, ui) {
-            $('#participant_name').val(ui.item.value);
-        }
-    });
 
-    $('#example').DataTable();
-
-    $("#participant_name").keyup(function () {
-        var name = $('#participant_name').val();
-        if (name.length > 0) {
-            $('#pt_name').text(name);
-        } else {
-            $('#pt_name').text('Participant Name');
-        }
-    });
-
-    $("#reset").click(function () {
-        $(this).closest('form').find("input[type=text], textarea").val("");
-        $('#adult_total_disp').text(0);
-        $('#children_total_disp').text(0);
-        $('#senior_total_disp').text(0);
-        $('#total_cost_disp').text(0);
-    });
-
-    $("#participant_adult,#participant_type,#participant_children,#participant_senior,#received_amt").change(function () {
+    calculateAuto = function () {
         var adult_no = $('#participant_adult').val();
         var children_no = $('#participant_children').val();
         var senior_no = $('#participant_senior').val();
@@ -54,14 +28,7 @@ $(document).ready(function () {
         $('#children_total_disp').text(data.cal_children);
         $('#total_cost_disp').text(data.total_cost);
         $('#cost_amt').val(data.total_cost);
-    });
-
-    $("#received_amt").change(function () {
-        var last_cost = $('#cost_amt').val();
-        var rec_amt = $('#received_amt').val();
-        var ret_amt = rec_amt - last_cost;
-        $('#return_amt').val(ret_amt);
-    });
+    }
 
     // For calculating the total cost
     calculatePrice = function (adult_no, children_no, senior_no) {
@@ -101,6 +68,55 @@ $(document).ready(function () {
             'cal_senior': cal_senior
         }
     }
+
+    var pathArray = window.location.pathname.split( '/' );
+    if(pathArray[1] == 'home' && pathArray[2]=='participants' && pathArray[3]=='edit'){
+        var edit_adult = $('#participant_adult').val();
+        calculateAuto();
+//        $("#participant_adult").val('edit_adult').change();
+    }
+
+    $("#participant_name").autocomplete({
+        source: "search/autocomplete",
+        minLength: 3,
+        select: function (event, ui) {
+            $('#participant_name').val(ui.item.value);
+        }
+    });
+
+    $('#example').DataTable();
+
+    $("#participant_name").keyup(function () {
+        var name = $('#participant_name').val();
+        if (name.length > 0) {
+            $('#pt_name').text(name);
+        } else {
+            $('#pt_name').text('Participant Name');
+        }
+    });
+
+    $("#reset").click(function () {
+        $(this).closest('form').find("input[type=text], textarea").val("");
+        $('#adult_total_disp').text(0);
+        $('#children_total_disp').text(0);
+        $('#senior_total_disp').text(0);
+        $('#total_cost_disp').text(0);
+    });
+
+
+    $("#participant_adult,#participant_type,#participant_children,#participant_senior,#received_amt").change(function () {
+        calculateAuto();
+    });
+
+
+    $("#received_amt").change(function () {
+        var last_cost = $('#cost_amt').val();
+        var rec_amt = $('#received_amt').val();
+        var ret_amt = rec_amt - last_cost;
+        $('#return_amt').val(ret_amt);
+    });
+
+
 
     $("#hundred,#fifty,#twenty,#ten,#one").change(function () {
         $('.add-hundred').text('100 * ' + $('#hundred').val());

@@ -87,8 +87,7 @@
                     <div class="panel-body">
                         <form role="form">
                             <div class="form-group has-success">
-                                <label class="control-label" for="participant_name_disp" id="pt_name">Participant
-                                    Name</label>
+                                <label class="control-label" for="participant_name_disp" id="pt_name">{{ $participant_info['name'] }}</label>
                             </div>
                             <div>
                                 <table>
