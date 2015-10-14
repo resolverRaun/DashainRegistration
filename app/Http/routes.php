@@ -31,6 +31,8 @@ Route::get('home/participants/new', 'HomeController@addParticipants');
 Route::get('/',array('as' => 'home', 'uses' => 'HomeController@addParticipants'));
 Route::get('home/participants/edit/{id}', 'HomeController@editParticipants');
 Route::post('home/participants/save', 'HomeController@saveParticipants');
+Route::post('home/participants/update/{id}', 'HomeController@updateParticipants');
+Route::get('home/participants/delete/{id}', array('as' => 'deleteParticipant', 'uses' => 'HomeController@deleteParticipants'));
 
 Route::get('home/viewPeople',array('as' => 'people', 'uses' => 'HomeController@viewPeople'));
 Route::get('search/autocomplete/{term?} ', 'HomeController@autocomplete');

@@ -15,7 +15,7 @@
                         Edit Participant
                     </div>
                     <div class="panel-body">
-                        <form action="{{ url('/home/participants/edit') }}" method="POST">
+                        <form action="{{ URL::to('home/participants/update/' . $participant_info['id']) }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="participant_id" value="{{ $participant_info['id'] }}">
 

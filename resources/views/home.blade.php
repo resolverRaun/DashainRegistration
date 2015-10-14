@@ -73,7 +73,8 @@
                         @else
                            <td><label class="label label-danger">NO</label></td>
                         @endif
-                        <td><a href="#" class="btn btn-xs btn-danger">Edit</a></td>
+                        <td><a href="{{ URL::to('home/participants/edit/' . $data['id']) }}" class="btn btn-xs btn-primary">Edit</a>
+                        <a href="{{ URL::to('home/participants/delete/' . $data['id']) }}" class="btn btn-xs btn-danger">Delete</a></td>
                     </tr>
                 @endforeach
                 </tbody>
