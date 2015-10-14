@@ -27,16 +27,7 @@
 </head>
 <body>
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <strong>Email: </strong>info@yourdomain.com
-                &nbsp;&nbsp;
-                <strong>Support: </strong>+90-897-678-44
-            </div>
 
-        </div>
-    </div>
 </header>
 <div class="navbar navbar-inverse set-radius-zero">
     <div class="container">
@@ -47,14 +38,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.html">
-
-                <img src="assets/img/logo.png"/>
+                <img src="../img/logo.png" style="max-height: 100px; max-width: 100px;" />
             </a>
 
         </div>
 
         <div class="left-div">
-            <i class="fa fa-user-plus login-icon"></i>
+           <div class="row">
+                    <font size=50>Kansas City Nepali Samaj </font>
+
+            </div>
+            <!--<i class="fa fa-user-plus login-icon"></i>-->
         </div>
     </div>
 </div>
@@ -67,7 +61,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/"
+                &copy; 2015 ResolverRaun | By : <a href="http://www.designbootstrap.com/"
                                                   target="_blank">DesignBootstrap</a>
             </div>
 

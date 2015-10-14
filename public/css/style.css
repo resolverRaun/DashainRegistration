@@ -41,9 +41,9 @@ body {
 .page-head-line {
     font-weight: 900;
     padding-bottom: 20px;
-    border-bottom: 2px solid #F0677C;
+    border-bottom: 2px solid #050000;
     text-transform: uppercase;
-    color: #F0677C;
+    color: #050000;
     font-size: 20px;
     margin-bottom: 40px;
 }
@@ -78,7 +78,7 @@ background-color:#F0677C;
    HEADER SECTION STYLES
  ============================================================ */
 header {
-    background-color: #F0677C;
+    background-color: #0054a6;
     color: #fff;
     padding: 10px;
     text-align: right;
@@ -157,11 +157,11 @@ header {
 /* MENU LINKS SECTION*/
 
 .menu-section {
-    background-color: #3D3D3D;
+    background-color: #d5cdcd;
 }
 
 #menu-top a {
-    color: #FFF;
+    color: #000;
     text-decoration: none;
     font-weight: 500;
     padding: 10px 10px 10px 10px;
@@ -181,7 +181,7 @@ header {
 }
 
 .navbar-inverse {
-    background-color: #C36464;
+    background-color: #6dcff6;
     border-color: transparent;
 }
 
@@ -200,7 +200,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #C36464;
+    background-color: #0054a6;
 }
 
     footer a, footer a:hover {
@@ -215,19 +215,19 @@ footer {
 /* DASHBOARD ICONS */
 
 .bk-clr-one {
-    background-color: #B9B739;
+    background-color: #8393ca;
 }
 
 .bk-clr-two {
-    background-color: #F94C4C;
+    background-color: #7da7d9;
 }
 
 .bk-clr-three {
-    background-color: #119c7e;
+    background-color: #6dcff6;
 }
 
 .bk-clr-four {
-    background-color: #b739b9;
+    background-color: #fdc689;
 }
 
 .dashboard-div-icon {

@@ -1,6 +1,5 @@
 <?php
 
-use App\User;
 use App\MoneyArrange;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
