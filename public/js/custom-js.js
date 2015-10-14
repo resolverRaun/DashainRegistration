@@ -33,6 +33,7 @@ $(document).ready(function () {
             $('#pt_name').text('Participant Name');
         }
     });
+
     $("#reset").click(function () {
         $(this).closest('form').find("input[type=text], textarea").val("");
         $('#adult_total_disp').text(0);
@@ -40,7 +41,8 @@ $(document).ready(function () {
         $('#senior_total_disp').text(0);
         $('#total_cost_disp').text(0);
     });
-    $("#participant_adult,#participant_children,#participant_senior,#received_amt").change(function () {
+
+    $("#participant_adult,#participant_type,#participant_children,#participant_senior,#received_amt").change(function () {
         var adult_no = $('#participant_adult').val();
         var children_no = $('#participant_children').val();
         var senior_no = $('#participant_senior').val();
@@ -100,8 +102,21 @@ $(document).ready(function () {
         }
     }
 
+    $("#hundred,#fifty,#twenty,#ten,#one").change(function () {
+        $('.add-hundred').text('100 * ' + $('#hundred').val());
+        $('#hunderd_total_disp').text(100 *  $('#hundred').val());
+        $('.add-fifty').text('50 * ' + $('#fifty').val());
+        $('#fifty_total_disp').text(50 *  $('#fifty').val());
+        $('.add-twenty').text('20 * ' + $('#twenty').val());
+        $('#twenty_total_disp').text(20 *  $('#twenty').val());
+        $('.add-ten').text('10 * ' + $('#ten').val());
+        $('#ten_total_disp').text(10 *  $('#ten').val());
+        $('.add-one').text('1 * ' + $('#one').val());
+        $('#one_total_disp').text(1 *  $('#one').val());
 
+        $('#grandtotal_cost_disp').text(parseInt($('#hunderd_total_disp').text()) + parseInt($('#fifty_total_disp').text()) + parseInt($('#twenty_total_disp').text()) + parseInt($('#ten_total_disp').text()) + parseInt($('#one_total_disp').text()));
 
-});
+    });
+ });
 
 
