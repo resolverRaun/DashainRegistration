@@ -159,8 +159,8 @@ class HomeController extends Controller
         $results = array();
 
         $queries = DB::table('people')
-            ->where('first_name', 'LIKE', '%' . $term . '%')
-            ->orWhere('last_name', 'LIKE', '%' . $term . '%')
+            ->where('first_name', 'ilIKE', '%' . $term . '%')
+            ->orWhere('last_name', 'ilIKE', '%' . $term . '%')
             ->take(5)->get();
 
         foreach ($queries as $query) {
