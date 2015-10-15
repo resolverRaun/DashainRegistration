@@ -52,7 +52,7 @@
                                 <select class="form-control" id="participant_type" name="is_member">
                                     <option value="">Select</option>
                                     <option value="1">Member</option>
-                                    <option value="0">Non Member</option>
+                                    <option value="0" selected>Non Member</option>
                                 </select>
                             </div>
                             <div class="form-group">

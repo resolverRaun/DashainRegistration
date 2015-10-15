@@ -28,6 +28,7 @@ $(document).ready(function () {
         $('#children_total_disp').text(data.cal_children);
         $('#total_cost_disp').text(data.total_cost);
         $('#cost_amt').val(data.total_cost);
+
     }
 
     // For calculating the total cost
@@ -81,6 +82,7 @@ $(document).ready(function () {
         minLength: 3,
         select: function (event, ui) {
             $('#participant_name').val(ui.item.value);
+            $('#participant_type').val('1');
         }
     });
 
@@ -132,6 +134,15 @@ $(document).ready(function () {
 
         $('#grandtotal_cost_disp').text(parseInt($('#hunderd_total_disp').text()) + parseInt($('#fifty_total_disp').text()) + parseInt($('#twenty_total_disp').text()) + parseInt($('#ten_total_disp').text()) + parseInt($('#one_total_disp').text()));
 
+    });
+
+    $( "#received_amt" ).change(function() {
+        debugger;
+        if($('#return_amt').val()<0){
+            $('#submit_participant').prop('disabled', true);
+        }
+        else
+            $('#submit_participant').prop('disabled', false);
     });
  });
 
