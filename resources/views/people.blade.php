@@ -51,19 +51,23 @@
                     <table class="table display table-striped table-bordered table-hover" id="example" cellspacing="0" width="100%">
                         <thead>
                         <tr>
+                            <th>Id</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Address</th>
                             <th>Phone</th>
+                            <th>Email</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($people as $data)
                         <tr>
+                            <td>{{ $data['id'] }}</td>
                             <td>{{ $data['first_name'] }}</td>
                             <td>{{ $data['last_name'] }}</td>
                             <td>{{ $data['address'] }}</td>
                             <td>{{ $data['phone'] }}</td>
+                            <td>{{ $data['email'] }}</td>
 
                         </tr>
                         @endforeach
