@@ -113,7 +113,7 @@ class HomeController extends Controller
         $participant_type['senior'] = $attributes['senior'];
         $result_participant = Participators_type::create($participant_type);
         if ($result_participant) {
-            return redirect()->action('HomeController@index');
+            return redirect()->action('HomeController@addParticipants');
         }
     }
 
@@ -217,5 +217,27 @@ class HomeController extends Controller
         if($participant && $participantType){
             return redirect()->action('HomeController@index');
         }
+    }
+
+    public function deleteInventory($id)
+    {
+        $inventory=Inventory::find($id);
+        $result=$inventory->delete();
+        if($result){
+            return redirect()->action('HomeController@getInventory');
+        }
+    }
+    public function editInventory($id)
+    {
+        $inventory=Inventory::find($id);
+        return view('edit_inventory', compact('inventory'));
+    }
+    public function updateInventory($id)
+    {
+        $attributes=Input::all();
+        $inventory=Inventory::find($id);
+        $result=$inventory->fill($attributes)->save();
+        if($result)
+            return redirect()->action('HomeController@getInventory');
     }
 }

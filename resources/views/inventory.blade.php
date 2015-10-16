@@ -49,6 +49,7 @@
                             <th>Name</th>
                             <th>Price</th>
                             <th>Created On</th>
+                            <th>Operations</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -57,6 +58,8 @@
                             <td>{{ $data['name'] }}</td>
                             <td>{{ $data['price'] }}</td>
                             <td>{{ $data['created_at'] }}</td>
+                            <td><a href="{{ URL::to('home/inventory/edit/' . $data['id']) }}" class="btn btn-xs btn-primary">Edit</a>
+                                <a href="{{ URL::to('home/inventory/delete/' . $data['id']) }}" class="btn btn-xs btn-danger">Delete</a></td>
                         </tr>
                         @endforeach
                         </tbody>

@@ -40,6 +40,9 @@ Route::get('search/autocomplete/{term?} ', 'HomeController@autocomplete');
 Route::get('home/inventory/new', 'HomeController@addInventory');
 Route::post('home/inventory/save', 'HomeController@saveInventory');
 Route::get('home/inventory',array('as' => 'inventory', 'uses' => 'HomeController@getInventory'));
+Route::get('home/inventory/edit/{id}', 'HomeController@editInventory');
+Route::post('home/inventory/update/{id}', 'HomeController@updateInventory');
+Route::get('home/inventory/delete/{id}', 'HomeController@deleteInventory');
 
 Route::get('home/miscellaneous',array('as' => 'miscellaneous', 'uses' => 'HomeController@getMiscellaneous'));
 Route::post('home/miscellaneous/save', 'HomeController@updateMiscellaneous');
