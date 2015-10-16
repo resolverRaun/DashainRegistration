@@ -6,6 +6,7 @@ use App\Participant;
 use App\Participators_type;
 use App\People;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -43,8 +44,9 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->session()->flash('status', 'Task was successful!');
         $sum_cost = $this->getTotalCost();
         $total_members = $this->getTotalMember();
         $participants = Participant::with('participant_type')->get()->toArray();
@@ -113,7 +115,7 @@ class HomeController extends Controller
         $participant_type['senior'] = $attributes['senior'];
         $result_participant = Participators_type::create($participant_type);
         if ($result_participant) {
-            return redirect()->action('HomeController@addParticipants');
+            return redirect()->action('HomeController@addParticipants')->with('success', 'Participant Created Successfully.');
         }
     }
 

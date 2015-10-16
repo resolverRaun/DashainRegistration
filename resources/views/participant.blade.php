@@ -1,6 +1,14 @@
 @extends('layout')
 
 @section('content')
+@if(Session::get('success'))
+<script>
+    $(function(){
+        toastr.success("Participant Created Successfully")
+    })
+</script>
+
+@endif
 <div class="content-wrapper">
     <div class="container">
         <div class="row">
