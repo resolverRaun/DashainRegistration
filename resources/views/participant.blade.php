@@ -117,6 +117,7 @@
                                     <tr><td style="width:200px">Senior</td><td id="senior_total_disp" style="width:200px">0</td></tr>
                                     <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
                                     <tr><td style="width:200px">Total Cost ($)</td><td id="total_cost_disp" style="width:200px">0</td></tr>
+                                    <tr><td style="width:200px">Return Amount($)</td><td id="return_amount" style="width:200px">0</td></tr>
                                 </table>
                             </div>
 

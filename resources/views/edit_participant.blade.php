@@ -127,6 +127,12 @@
                                             $participant_info['cost_amt']}}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td style="width:200px">Return Amount($)</td>
+                                        <td id="return_amount" style="width:200px">{{
+                                            $participant_info['return_amt']}}
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
 

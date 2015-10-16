@@ -116,6 +116,7 @@ $(document).ready(function () {
         var rec_amt = $('#received_amt').val();
         var ret_amt = rec_amt - last_cost;
         $('#return_amt').val(ret_amt);
+        $('#return_amount').text(ret_amt);
     });
 
 
@@ -137,7 +138,6 @@ $(document).ready(function () {
     });
 
     $( "#received_amt" ).change(function() {
-        debugger;
         if($('#return_amt').val()<0){
             $('#submit_participant').prop('disabled', true);
         }
