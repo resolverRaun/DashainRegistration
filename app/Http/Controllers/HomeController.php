@@ -62,7 +62,7 @@ class HomeController extends Controller
             $arr_total_money->total_cost_amt = 0;
         if (empty($arr_expended_money->total_expended_amt))
             $arr_expended_money->total_expended_amt = 0;
-        $petty_cash = $arr_total_money->total_cost_amt - $arr_expended_money->total_expended_amt;
+        $petty_cash = $arr_total_money->total_cost_amt + $arr_expended_money->total_expended_amt;
         return $petty_cash;
     }
 
