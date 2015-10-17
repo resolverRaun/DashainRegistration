@@ -38,24 +38,24 @@
                                 </select>
                             </div>
                             <?php //var_dump($participant_info);die; ?>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="participator_adult">Adult</label>
                                 <input type="text" class="form-control" name="adult" id="participant_adult"
                                        value="{{ $participant_info['participant_type']['adult'] }}"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="participator_children">Children</label>
                                 <input type="text" class="form-control" name="children" id="participant_children"
                                        value="{{ $participant_info['participant_type']['children'] }}"/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="participator_senior">Senior</label>
                                 <input type="text" class="form-control" name="senior" id="participant_senior"
                                        value="{{ $participant_info['participant_type']['senior'] }}"/>
                             </div>
                             <div class="form-group">
-                                <label for="participator_tot_cost">Total Cost</label>
-                                <input type="text" class="form-control" name="cost_amt" id="cost_amt"
+                                <!--<label for="participator_tot_cost">Total Cost</label>-->
+                                <input type="hidden" class="form-control" name="cost_amt" id="cost_amt"
                                        value="{{ $participant_info['cost_amt'] }}"/>
                             </div>
                             <div class="form-group">
@@ -64,8 +64,8 @@
                                        value="{{ $participant_info['received_amt'] }}"/>
                             </div>
                             <div class="form-group">
-                                <label for="participator_return_amt">Return Amount</label>
-                                <input type="text" class="form-control" name="return_amt" id="return_amt"
+                                <!--<label for="participator_return_amt">Return Amount</label>-->
+                                <input type="hidden" class="form-control" name="return_amt" id="return_amt"
                                        value="{{ $participant_info['return_amt'] }}"/>
                             </div>
                             <div class="form-group">
@@ -123,13 +123,13 @@
                                     </tr>
                                     <tr>
                                         <td style="width:200px">Total Cost ($)</td>
-                                        <td id="total_cost_disp" style="width:200px">{{
+                                        <td id="total_cost_disp" style="width:200px;font-size: 30px;color: red;">{{
                                             $participant_info['cost_amt']}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width:200px">Return Amount($)</td>
-                                        <td id="return_amount" style="width:200px">{{
+                                        <td id="return_amount" style="width:200px;font-size: 30px;color: green;">{{
                                             $participant_info['return_amt']}}
                                         </td>
                                     </tr>

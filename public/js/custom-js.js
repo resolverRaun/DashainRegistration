@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#submit_participant').prop('disabled', true);
     var CONFIG = (function () {
         var private = {
             'MEMBER_ADULT_PRICE': 18,
@@ -29,6 +30,14 @@ $(document).ready(function () {
         $('#total_cost_disp').text(data.total_cost);
         $('#cost_amt').val(data.total_cost);
 
+    }
+
+    updateSaveBtnState = function(){
+        if($('#return_amt').val()<0 || $('#cost_amt').val()<=0){
+            $('#submit_participant').prop('disabled', true);
+        }
+        else
+            $('#submit_participant').prop('disabled', false);
     }
 
     // For calculating the total cost
@@ -119,6 +128,14 @@ $(document).ready(function () {
         $('#return_amount').text(ret_amt);
     });
 
+    $("#received_amt").keyup(function () {
+        var last_cost = $('#cost_amt').val();
+        var rec_amt = $('#received_amt').val();
+        var ret_amt = rec_amt - last_cost;
+        $('#return_amt').val(ret_amt);
+        $('#return_amount').text(ret_amt);
+    });
+
 
 
     $("#hundred,#fifty,#twenty,#ten,#one").change(function () {
@@ -137,12 +154,16 @@ $(document).ready(function () {
 
     });
 
-    $( "#received_amt" ).change(function() {
-        if($('#return_amt').val()<0){
-            $('#submit_participant').prop('disabled', true);
-        }
-        else
-            $('#submit_participant').prop('disabled', false);
+    $( "#received_amt,#cost_amt" ).change(function() {
+        updateSaveBtnState();
+    });
+
+    $("#received_amt").keyup(function () {
+        updateSaveBtnState();
+    });
+
+    $("#received_amt").focus(function () {
+        updateSaveBtnState();
     });
  });
 

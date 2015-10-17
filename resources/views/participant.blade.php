@@ -20,7 +20,7 @@
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="dashboard-div-wrapper bk-clr-one">
                     <i class="fa fa-users dashboard-div-icon"></i>
-                    <h5 class="dashboard-members-count">Adult : {{$total_members->total_adult}} </h5>
+                    <h5 class="dashboard-members-count" >Adult : {{$total_members->total_adult}} </h5>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-6">
@@ -63,29 +63,29 @@
                                     <option value="0" selected>Non Member</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="participator_adult">Adult</label>
                                 <input type="text" class="form-control" name="adult" id="participant_adult" value="0" placeholder="0" />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="participator_children">Children</label>
                                 <input type="text" class="form-control" name="children" id="participant_children"  value="0" placeholder="0" />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="participator_senior">Senior</label>
                                 <input type="text" class="form-control" name="senior" id="participant_senior"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
-                                <label for="participator_tot_cost">Total Cost</label>
-                                <input type="text" class="form-control" name="cost_amt" id="cost_amt"  value="0" placeholder="0" />
+                                <!--<label for="participator_tot_cost">Total Cost</label>-->
+                                <input type="hidden" class="form-control" name="cost_amt" id="cost_amt"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <label for="participator_received_amt">Received Amount</label>
                                 <input type="text" class="form-control" name="received_amt" id="received_amt"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
-                                <label for="participator_return_amt">Return Amount</label>
-                                <input type="text" class="form-control" name="return_amt" id="return_amt"  value="0" placeholder="0" />
+                                <!--<label for="participator_return_amt">Return Amount</label>-->
+                                <input type="hidden" class="form-control" name="return_amt" id="return_amt"  value="0" placeholder="0" />
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="btnSubmit" value="Save" id="submit_participant" class="btn btn-md btn-success" />
@@ -112,12 +112,12 @@
                                 <table>
                                     <tr><td style="width:200px">Person</td><td style="width:200px">Total</td></tr>
                                     <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-                                    <tr><td style="width:200px">Adult</td><td id="adult_total_disp" style="width:200px">0</td></tr>
+                                    <tr><td style="width:200px">Adult</td><td id="adult_total_disp" style="width:200px; font-size:30;" >0</td></tr>
                                     <tr><td style="width:200px">Children</td><td id="children_total_disp" style="width:200px">0</td></tr>
                                     <tr><td style="width:200px">Senior</td><td id="senior_total_disp" style="width:200px">0</td></tr>
                                     <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-                                    <tr><td style="width:200px">Total Cost ($)</td><td id="total_cost_disp" style="width:200px">0</td></tr>
-                                    <tr><td style="width:200px">Return Amount($)</td><td id="return_amount" style="width:200px">0</td></tr>
+                                    <tr><td style="width:200px">Total Cost ($)</td><td id="total_cost_disp" style="width:200px;font-size: 30px;color: red;">0</td></tr>
+                                    <tr><td style="width:200px">Return Amount($)</td><td id="return_amount" style="width:200px;font-size: 30px;color: green;">0</td></tr>
                                 </table>
                             </div>
 
